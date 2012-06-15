@@ -35,3 +35,6 @@ recurring_cancel = Signal()
 recurring_skipped = Signal()
 
 recurring_failed = Signal()
+
+# masspay
+masspay_signal = Signal()

@@ -29,6 +29,9 @@ class PayPalIPN(PayPalStandardBase):
                 payment_was_flagged.send(sender=self)
             else:
                 payment_was_successful.send(sender=self)
+        # Mass pay signals
+        elif self.is_masspay():
+            masspay_signal.send(sender=self)
         # Recurring payment signals:
         # XXX: Should these be merged with subscriptions?
         elif self.is_recurring():
